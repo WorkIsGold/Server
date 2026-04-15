@@ -54,7 +54,7 @@ ROOT_URLCONF = 'server.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates']
+        'DIRS': [BASE_DIR / 'news_portal/news_app/templates']
         ,
         'APP_DIRS': True,
         'OPTIONS': {
