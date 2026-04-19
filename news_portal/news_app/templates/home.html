@@ -3,5 +3,13 @@
     Home
 {% endblock %}
 {% block content %}
-    12345
+    <div class="col-md-12">
+        <h1>Новостной портал</h1>
+    </div>
+    <div class="co-md-12">
+        {% for i in news_list %}
+            <li> {{ i.header }} </li>
+        {% endfor %}
+    </div>
+    <a href="news/success">Success</a>
 {% endblock %}

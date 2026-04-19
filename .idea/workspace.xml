@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9abe052f-de33-4fe7-a7cd-39f3a22ab43b" name="Changes" comment="start">
-      <change afterPath="$PROJECT_DIR$/news_portal/news_app/static/css/bootstrap.bundle.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/news_portal/news_app/static/css/bootstrap.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/news_portal/news_app/templates/add_news.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/news_portal/news_app/templates/home.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/news_portal/news_app/templates/news_detail.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/news_portal/news_app/templates/success.html" afterDir="false" />
+    <list default="true" id="9abe052f-de33-4fe7-a7cd-39f3a22ab43b" name="Changes" comment="add some functions">
+      <change afterPath="$PROJECT_DIR$/news_portal/news_app/data/news.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/news_portal/news_app/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/news_portal/news_app/templates/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/news_portal/news_app/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/news_portal/news_app/templates/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/news_portal/news_app/templates/news_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/news_portal/news_app/templates/news_detail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/news_portal/news_app/templates/success.html" beforeDir="false" afterPath="$PROJECT_DIR$/news_portal/news_app/templates/success.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/news_portal/news_app/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/news_portal/news_app/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/news_portal/news_app/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/news_portal/news_app/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/news_portal/news_portal/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/news_portal/news_portal/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/server/settings.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
+    <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -54,22 +54,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.OpenDjangoStructureViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "codeWithMe.voiceChat.enabledByDefault": "false",
-    "django.template.preview.state": "SHOW_EDITOR_AND_PREVIEW",
-    "git-widget-placeholder": "master",
-    "list.type.of.created.stylesheet": "CSS",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenDjangoStructureViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
+    &quot;django.template.preview.state&quot;: &quot;SHOW_EDITOR_AND_PREVIEW&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\User\PycharmProjects\Server\news_portal\news_app\templates" />
@@ -122,7 +122,12 @@
       <updated>1775990317441</updated>
       <workItem from="1775990318464" duration="8796000" />
       <workItem from="1776018811011" duration="4000" />
-      <workItem from="1776251089873" duration="4005000" />
+      <workItem from="1776251089873" duration="7887000" />
+      <workItem from="1776270670389" duration="1701000" />
+      <workItem from="1776504425496" duration="5027000" />
+      <workItem from="1776602902419" duration="4809000" />
+      <workItem from="1776610405446" duration="614000" />
+      <workItem from="1776613845877" duration="396000" />
     </task>
     <task id="LOCAL-00001" summary="start">
       <option name="closed" value="true" />
@@ -132,7 +137,15 @@
       <option name="project" value="LOCAL" />
       <updated>1775991361038</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="add some functions">
+      <option name="closed" value="true" />
+      <created>1776255132340</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1776255132340</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -140,6 +153,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="start" />
-    <option name="LAST_COMMIT_MESSAGE" value="start" />
+    <MESSAGE value="add some functions" />
+    <option name="LAST_COMMIT_MESSAGE" value="add some functions" />
   </component>
 </project>
