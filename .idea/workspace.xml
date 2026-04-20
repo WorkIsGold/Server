@@ -1,16 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9abe052f-de33-4fe7-a7cd-39f3a22ab43b" name="Changes" comment="add some functions">
-      <change afterPath="$PROJECT_DIR$/news_portal/news_app/data/news.json" afterDir="false" />
+    <list default="true" id="9abe052f-de33-4fe7-a7cd-39f3a22ab43b" name="Changes" comment="fixed buttons transfer to another page">
+      <change afterPath="$PROJECT_DIR$/news_portal/news_app/forms.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/news_portal/news_app/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/news_portal/news_app/templates/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/news_portal/news_app/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/news_portal/news_app/templates/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/news_portal/news_app/templates/news_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/news_portal/news_app/templates/news_detail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/news_portal/news_app/templates/success.html" beforeDir="false" afterPath="$PROJECT_DIR$/news_portal/news_app/templates/success.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/news_portal/news_app/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/news_portal/news_app/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/news_portal/news_app/templates/add_news.html" beforeDir="false" afterPath="$PROJECT_DIR$/news_portal/news_app/templates/add_news.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/news_portal/news_app/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/news_portal/news_app/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/news_portal/news_portal/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/news_portal/news_portal/settings.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,8 +20,8 @@
       <list>
         <option value="CSS File" />
         <option value="JavaScript File" />
-        <option value="Python Script" />
         <option value="HTML File" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
@@ -127,7 +122,8 @@
       <workItem from="1776504425496" duration="5027000" />
       <workItem from="1776602902419" duration="4809000" />
       <workItem from="1776610405446" duration="614000" />
-      <workItem from="1776613845877" duration="396000" />
+      <workItem from="1776613845877" duration="3843000" />
+      <workItem from="1776676156380" duration="1197000" />
     </task>
     <task id="LOCAL-00001" summary="start">
       <option name="closed" value="true" />
@@ -145,7 +141,15 @@
       <option name="project" value="LOCAL" />
       <updated>1776255132340</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="fixed buttons transfer to another page">
+      <option name="closed" value="true" />
+      <created>1776614296759</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1776614296759</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -154,6 +158,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="start" />
     <MESSAGE value="add some functions" />
-    <option name="LAST_COMMIT_MESSAGE" value="add some functions" />
+    <MESSAGE value="fixed buttons transfer to another page" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed buttons transfer to another page" />
   </component>
 </project>
