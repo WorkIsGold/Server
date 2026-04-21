@@ -7,9 +7,16 @@
         <h1>Новостной портал</h1>
     </div>
     <div class="co-md-12">
-        {% for i in news_list %}
-            <li> {{ i.header }} </li>
-        {% endfor %}
+        {% if news_list %}
+            {% for news in news_list %}
+                <li>
+                    <h2> {{ news.title }} </h2>
+                    <h5> {{ news.summary }} </h5>
+                </li>
+            {% endfor %}
+        {% else %}
+            <h2> Новостей пока что нет </h2>
+        {% endif %}
     </div>
     <a href="news/success">Success</a>
 {% endblock %}

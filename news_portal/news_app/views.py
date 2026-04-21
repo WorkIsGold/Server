@@ -1,19 +1,20 @@
+from datetime import datetime
+
 from django.shortcuts import render
 from django.http import HttpResponse
 from .forms import NewsForm
-from os.path import join
 import json
 
 
 # Create your views here.
 def home_view(request):
-    data = {'news_list': load_news()}
+    data = {'tab_number': 1, 'news_list': load_news()}
     return render(request, 'home.html', context=data)
 
 
 def news_detail_view(request, news_id=1):
     news = load_news(news_id)
-    data = {'header': news['header'], 'theme': news['theme'], 'text': news['txt']}
+    data = {'title': news['title'], 'summary': news['summary'], 'content': news['content']}
     return render(request, 'news_detail.html', context=data)
 
 
@@ -23,11 +24,11 @@ def add_news_view(request):
         last_index = len(load_news())
         print(load_news())
         print(last_index)
-        news = {'id': last_index, 'theme': request.POST.get('theme'), 'text': request.POST.get('text')}
+        news = {'id': last_index, 'title': request.POST.get('title'), 'summary': request.POST.get('summary'), 'content': request.POST.get('content'), 'date:': datetime.now().strftime("%Y-%m-%d")}
         save_news(news)
         return render(request, 'success.html')
     else:
-        return render(request, 'add_news.html', {'form': NewsForm()})
+        return render(request, 'add_news.html', {'tab_number': 2, 'form': NewsForm()})
 
 
 def success_view(request):
@@ -35,12 +36,12 @@ def success_view(request):
 
 
 #Functions for work with JSON
-filename = join('data', 'news.json')
+filename = 'news_app/data/news.json'
 
 
 def load_news(news_id=-1):
     with open(filename, 'r') as json_file:
-        news_list = json_file['news']
+        news_list = json.load(json_file)['news']
         if news_id == -1:  #хотим получить все новости
             return news_list
         if news_id < len(news_list):  #хотим получить конкретную новость
