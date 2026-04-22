@@ -10,4 +10,10 @@
         </table>
         <input type="submit" value="Отправить">
     </form>
+    {% if form.errors %}
+        <p>Некорректные данные:</p>
+        {% for error in form.errors %}
+            {{ error }}
+        {% endfor %}
+    {% endif %}
 {% endblock %}
