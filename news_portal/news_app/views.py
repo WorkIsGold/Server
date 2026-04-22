@@ -1,5 +1,4 @@
 from datetime import datetime
-
 from django.shortcuts import render
 from django.http import HttpResponse
 from .forms import NewsForm
@@ -24,7 +23,7 @@ def add_news_view(request):
         last_index = len(load_news())
         print(load_news())
         print(last_index)
-        news = {'id': last_index, 'title': request.POST.get('title'), 'summary': request.POST.get('summary'), 'content': request.POST.get('content'), 'date:': datetime.now().strftime("%Y-%m-%d")}
+        news = {'id': last_index, 'title': request.POST.get('title'), 'summary': request.POST.get('summary'), 'content': request.POST.get('content'), 'date': datetime.now().strftime("%Y-%m-%d")}
         save_news(news)
         return render(request, 'success.html')
     else:
@@ -43,6 +42,7 @@ def load_news(news_id=-1):
     with open(filename, 'r') as json_file:
         news_list = json.load(json_file)['news']
         if news_id == -1:  #хотим получить все новости
+            news_list.sort(key=lambda x: x['date'], reverse=True)
             return news_list
         if news_id < len(news_list):  #хотим получить конкретную новость
             return news_list[news_id]
