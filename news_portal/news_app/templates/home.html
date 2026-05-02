@@ -1,4 +1,6 @@
 {% extends "base.html" %}
+{% load tz %}
+{% now "Y" as current_date %}
 {% block title %}
     Home
 {% endblock %}
@@ -14,11 +16,17 @@
                         <div  class="card border-info">
                             <ul class="list-group list-group-flush">
                                 <a class="list-group-item list-group-item-info list-group-item-action" href="news/{{ news.id }}">
-                                    <h2> {{ news.title }} </h2>
+                                    <h2> {{ news.title }} {{ current_date }} </h2>
                                 </a>
-                                <a class="list-group-item list-group-item-action" href="news/{{ news.id }}">
-                                    <h5> {{ news.summary }}</h5>
+                                {% if current_date == news.date %}
+                                <a class="list-group-item list-group-item-info list-group-item-action" href="news/{{ news.id }}">
+                                    <h5> {{ news.summary }} </h5>
                                 </a>
+                                {% else %}
+                                    <a class="list-group-item list-group-item-action" href="news/{{ news.id }}">
+                                        <h5> {{ news.summary }} </h5>
+                                    </a>
+                                {% endif %}
                             </ul>
                         </div>
                     </li>

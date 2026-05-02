@@ -13,7 +13,7 @@ def home_view(request):
 
 def news_detail_view(request, news_id=1):
     news = load_news(news_id)
-    data = {'title': news['title'], 'summary': news['summary'], 'content': news['content']}
+    data = {'title': news['title'], 'summary': news['summary'], 'content': news['content'], 'date': news['date']}
     return render(request, 'news_detail.html', context=data)
 
 
