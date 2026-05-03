@@ -1,10 +1,10 @@
 {% extends "base.html" %}
 {% load tz %}
-{% now "Y" as current_date %}
 {% block title %}
     Home
 {% endblock %}
 {% block content %}
+    {% now "Y-m-d" as current_date %}
     <div class="col-md-12">
         <h1 align="center">Новостной портал</h1>
     </div>
@@ -16,7 +16,7 @@
                         <div  class="card border-info">
                             <ul class="list-group list-group-flush">
                                 <a class="list-group-item list-group-item-info list-group-item-action" href="news/{{ news.id }}">
-                                    <h2> {{ news.title }} {{ current_date }} </h2>
+                                    <h2> {{ news.title }} </h2>
                                 </a>
                                 {% if current_date == news.date %}
                                 <a class="list-group-item list-group-item-info list-group-item-action" href="news/{{ news.id }}">
