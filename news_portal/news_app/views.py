@@ -6,6 +6,37 @@ import json
 
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login
+from django.contrib.auth.decorators import login_required
+
+@login_required
+def news_create_view(request):
+    if request.method == 'POST':
+        news = News.objects.create(title=request.POST.get('title'), summary=request.POST.get('summary'), content=request.POST.get('content'), author=User.objects.get(username=request.user))
+        return render(request, 'success.html')
+    else:
+        return render(request, 'add_news.html', {'tab_number': 2, 'form': NewsForm()})
+
+def news_edit_view(request, news_id):
+    news = get_object_or_404(News, id=news_id)
+    if news.author != request.user:
+        return HttpResponseForbidden("Вы не можете редактировать эту новость")
+    if request.method == 'POST':
+        if request.POST.get('title') != '':
+            news.title = request.POST.get('title')
+        if request.POST.get('summary') != '':
+            news.summary = request.POST.get('summary')
+        if request.POST.get('content') != '':
+            news.content = request.POST.get('content')
+        news.save()
+        return render(request, 'success.html')
+    return render(request, 'home.html')
+
+def news_delete_view(request, news_id):
+    news = get_object_or_404(News, id=news_id)
+    if news.author != request.user:
+        return HttpResponseForbidden("Вы не можете удалить эту новость")
+    News.objects.filter(id=news_id).delete()
+    return render(request, 'success.html')
 
 def register_view(request):
     if request.method == 'POST':
