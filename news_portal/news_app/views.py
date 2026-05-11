@@ -1,6 +1,8 @@
 from datetime import datetime
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.views.generic import UpdateView
 from django.http import HttpResponse
+from models import News
 from .forms import NewsForm
 import json
 
@@ -15,6 +17,12 @@ def news_create_view(request):
         return render(request, 'success.html')
     else:
         return render(request, 'add_news.html', {'tab_number': 2, 'form': NewsForm()})
+
+class NewsUpdateView(UpdateView):
+    model = News
+
+
+
 
 def news_edit_view(request, news_id):
     news = get_object_or_404(News, id=news_id)
@@ -36,6 +44,7 @@ def news_delete_view(request, news_id):
     if news.author != request.user:
         return HttpResponseForbidden("Вы не можете удалить эту новость")
     News.objects.filter(id=news_id).delete()
+    messages.success('Удаление прошло успешно')
     return render(request, 'success.html')
 
 def register_view(request):
@@ -44,7 +53,7 @@ def register_view(request):
         if form.is_valid():
             user = form.save()
             login(request, user)
-            return redirect('home')
+            return redirect('home.html')
     else:
         form = UserCreationForm()
     return render(request, 'register.html', {'form': form})

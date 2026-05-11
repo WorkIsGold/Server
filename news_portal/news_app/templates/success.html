@@ -4,6 +4,15 @@
 {% endblock %}
 {% block content %}
     <div class="row">
+        {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+                <li {% if message.tags %} class="{{ message.tags }}" {% endif %}>
+                    {{ message }}
+                </li>
+            {% endfor %}
+        </ul>
+        {% endif %}
         <div class="col-md-12"> Новость добавлена успешно </div>
         <div class="col-md-2 ms-auto">
             <a class="btn btn-primary" href="../"> ОК </a>
