@@ -2,7 +2,7 @@ from datetime import datetime
 from django.shortcuts import render, redirect
 from django.views.generic import UpdateView
 from django.http import HttpResponse
-from models import News
+from .models import News
 from .forms import NewsForm
 import json
 
