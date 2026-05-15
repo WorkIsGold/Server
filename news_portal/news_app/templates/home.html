@@ -15,15 +15,15 @@
                     <li style="padding: 5px;">
                         <div  class="card border-info">
                             <ul class="list-group list-group-flush">
-                                <a class="list-group-item list-group-item-info list-group-item-action" href="news/{{ news.id }}">
+                                <a class="list-group-item list-group-item-info list-group-item-action" href="news/{{ news.id }}/">
                                     <h2> {{ news.title }} </h2>
                                 </a>
                                 {% if current_date == news.date %}
-                                <a class="list-group-item list-group-item-info list-group-item-action" href="news/{{ news.id }}">
+                                <a class="list-group-item list-group-item-info list-group-item-action" href="news/{{ news.id }}/">
                                     <h5> {{ news.summary }} </h5>
                                 </a>
                                 {% else %}
-                                    <a class="list-group-item list-group-item-action" href="news/{{ news.id }}">
+                                    <a class="list-group-item list-group-item-action" href="news/{{ news.id }}/">
                                         <h5> {{ news.summary }} </h5>
                                     </a>
                                 {% endif %}
@@ -34,6 +34,13 @@
             </ul>
         {% else %}
             <h2> Новостей пока что нет </h2>
+        {% endif %}
+        {% if user.is_authenticated %}
+            <p>Добро пожаловать, {{user.first_name}} {{user.last_name}}!
+            <form method="post" action="{% url 'logout' %}">
+                {% csrf_token %}
+                <button class="btn btn-primary" type="submit">Выйти</button>
+            </form>
         {% endif %}
     </div>
 {% endblock %}

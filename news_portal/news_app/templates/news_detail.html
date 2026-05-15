@@ -4,24 +4,20 @@
 {% block content %}
     <div class="card">
         <div class="card-header">
-            <h1> {{ header }} </h1>
-        </div>
-        <div class="card-body">
-            {{ content }}
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-12">
             <h1 align="Center"> {{ title }} </h1>
         </div>
-        <div class="col-md-12">
-            <h3> {{ summary }} </h3>
-        </div>
-        <div class="col-md-12">
-            {{ content }}
-        </div>
-        <div class="col-md-2 ms-auto">
-            {{ date }}
+        <div class="card-body">
+            <ul class="list-group list-group-flush">
+                <h3 class="list-group-item"> {{ summary }} </h3>
+                <p class="list-group-item"> {{ content }} </p>
+                <p class="list-group-item" align="Right"> {{ author }} </p>
+                <p class="list-group-item" align="Right"> {{ date_updated }} </p>
+
+                <p class="list-group-item">
+                    <a class="btn btn-primary" href="edit/"> Изменить </a>
+                    <a class="btn btn-primary" href="delete/"> Удалить </a>
+                </p>
+            </ul>
         </div>
     </div>
     <div class="row">

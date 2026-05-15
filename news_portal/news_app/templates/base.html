@@ -9,6 +9,7 @@
 </head>
 <body>
     <div class="nav nav-tabs">
+        {% if user.is_authenticated %}
         <li class="nav-item">
             {% if tab_number == 1 %}
                 <a class="nav-link active" aria-current="page" href="#"> Главная </a>
@@ -23,6 +24,14 @@
                 <a class="nav-link" href="{% url 'add' %}"> Добавить новость </a>
             {% endif %}
         </li>
+        {% else %}
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'login' %}"> Войти </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'register' %}"> Регистрация </a>
+        </li>
+        {% endif %}
     </div>
     <div class="container-fluid">
         {% block content %}

@@ -5,9 +5,7 @@
     Добавление новости
     <form method="post">
         {% csrf_token %}
-        <table>
-            {{ form.as_p }}
-        </table>
+        {{ form.as_p }}
         <input type="submit" value="Отправить">
     </form>
     {% if form.errors %}

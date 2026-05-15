@@ -3,12 +3,15 @@
 {% endblock %}
 {% block content %}
     <div class="row">
-        <div class="col-md-12"> Вы действительно хотите удалить новость? </div>
-        <div class="col-md-1 ms-auto">
-            <a class="btn btn-primary" href="../"> Нет </a>
+        <div class="col-md-12" align="Center"> Вы действительно хотите удалить новость? </div>
+        <div class="col-md-6 ">
+            <a class="btn btn-primary" href="../" role="button"> Нет </a>
         </div>
-        <div class="col-md-1 ms-auto">
-            <a class="btn btn-primary" href="../"> Да </a>
+        <div class="col-md-6 ">
+            <form method="post">
+                {% csrf_token %}
+                <button class="btn btn-primary" role="button" type="submit"> Да </button>
+            </form>
         </div>
     </div>
 {%endblock %}
