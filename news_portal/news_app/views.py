@@ -1,13 +1,13 @@
 from datetime import datetime
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic import UpdateView
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseForbidden
 from .models import News
-from .forms import NewsForm, RegisterForm, UserUpdateForm
+from .forms import NewsForm, RegisterForm, UserUpdateForm, UserLoginForm
 from django.contrib import messages
 
 from django.contrib.auth.models import User
-from django.contrib.auth import login
+from django.contrib.auth import login, authenticate
 from django.contrib.auth.decorators import login_required
 
 @login_required
@@ -61,15 +61,40 @@ def news_delete_view(request, news_id):
     return render(request, 'news_confirm_delete.html')
 
 def register_view(request):
+    username = "1234567890"
     if request.method == 'POST':
+        print('====================================================')
+        print(User.objects.all())
+        username = request.POST['first_name'] + " " + request.POST['last_name']
+        print('------------------', username, '--------------------')
+        if User.objects.filter(username=username).exists():
+            print("Пользователь с таким именем уже существует")
         form = RegisterForm(request.POST)
+        #form.username = username
+        print(form.username)
         if form.is_valid():
             user = form.save()
+            print('save')
             login(request, user)
             return redirect('home')
     else:
         form = RegisterForm()
-    return render(request, 'register.html', {'form': form})
+    return render(request, 'register.html', {'form': form, 'username': username})
+
+def login_view(request):
+    form = UserLoginForm(request.POST or None)
+    if request.method == 'POST':
+        print("form", form)
+        print(form['first_name'], form['last_name'], form['password'])
+        if form.is_valid():
+            username = request.POST['first_name'] + " " + request.POST['last_name']
+            #print(username, request.POST['password'])
+            user = authenticate(request, username=username, password=request.POST['password'])
+            print('------------------login---------------------')
+            if user is not None:
+                login(request, user)
+                return redirect('home')
+    return render(request, 'login.html', {'form': form})
 
 @login_required
 def profile_view(request):
@@ -80,7 +105,18 @@ def profile_view(request):
         'first_name': user.first_name,
         'last_name': user.last_name,
     }
-    form = UserUpdateForm(request.POST or None, initial=initial)
+    form = UserUpdateForm(request.POST or None, initial=initial, instance=user)
+    if request.method == 'POST':
+        form.save()
+        messages.success(request, 'Профиль обновлен успешно')
+        print(request.POST.get('delete_button'))
+        return render(request, 'success.html')
+
+        """if request.method == 'GET':
+            #print('-----------------user-want-delete------------------')
+            User.objects.filter(username=request.user).delete()
+            messages.success(request, 'Удаление аккаунта прошло успешно')
+            return render(request, 'success.html')"""
     return render(request, 'profile.html', {'form': form})
 
 # Create your views here.

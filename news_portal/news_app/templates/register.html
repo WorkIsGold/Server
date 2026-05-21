@@ -2,6 +2,7 @@
 
 {% block content %}
     <h1>Зарегистрироваться</h1>
+    <h1>{{ username }}</h1>
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}

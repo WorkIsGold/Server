@@ -3,11 +3,35 @@
     <title>Профиль</title>
 {% endblock %}
 {% block content %}
-
-
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
-        <input type="submit" value="Отправить">
+        <button class="btn btn-primary" type="submit"> Отправить </button>
     </form>
+    {% if user.is_authenticated %}
+        <a onClick="openConfirmWindow()" class="btn btn-primary"> Удалить </a>
+        <div class="card" id="confirmWindow">
+            <div class="card-header">Удалить аккаунт?</div>
+            <div class="card-body">
+                <form method="post">
+                    {% csrf_token %}
+                    <button name="delete_button" class="btn btn-primary" type="submit"> Да </button>
+                </form>
+                <button class="btn btn-primary" onclick="closeConfirmWindow()"> Нет </button>
+            </div>
+        </div>
+        <script>
+            const confirmWindow = document.getElementById('confirmWindow')
+            confirmWindow.style.display = 'none'
+            confirmWindow.style.zIndex = 1
+
+            function openConfirmWindow() {
+                confirmWindow.style.display = 'block'
+            }
+
+            function closeConfirmWindow() {
+                confirmWindow.style.display = 'none'
+            }
+        </script>
+    {% endif %}
 {% endblock %}
