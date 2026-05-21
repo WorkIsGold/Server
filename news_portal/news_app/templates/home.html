@@ -9,18 +9,16 @@
         <h1 align="center">Новостной портал</h1>
     </div>
     <div class="co-md-12">
-        <p> current_date {{ current_date }} </p>
-        <p> news.date_updated {{ news.date_updated }} </p>
         {% if news_list %}
             <ul style="list-style-type: none;">
                 {% for news in news_list %}
                     <li style="padding: 5px;">
-                        <div  class="card border-info">
+                        <div class="card border-info">
                             <ul class="list-group list-group-flush">
                                 <a class="list-group-item list-group-item-info list-group-item-action" href="news/{{ news.id }}/">
                                     <h2> {{ news.title }} </h2>
                                 </a>
-                                {% if current_date == news.date_updated %}
+                                {% if current_date == news.date_updated|date:"Y-m-d" %}
                                 <a class="list-group-item list-group-item-info list-group-item-action" href="news/{{ news.id }}/">
                                     <h5> {{ news.summary }} </h5>
                                 </a>

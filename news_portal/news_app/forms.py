@@ -3,10 +3,9 @@ from .models import News
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 
+
 class RegisterForm(UserCreationForm):
     email = forms.EmailField(required=True)
-    #username = forms.CharField(required=False)
-    #user_last_name = forms.Textarea()
     def save(self, commit=True):
         username = f"{self.cleaned_data['first_name']} {self.cleaned_data['last_name']}"
         user = super(RegisterForm, self).save(commit=False)
@@ -17,9 +16,7 @@ class RegisterForm(UserCreationForm):
     class Meta:
         model = User
         fields = ['first_name', 'last_name', 'email', 'password1', 'password2']
-        """widgets = {
-            'username': forms.HiddenInput(attrs={"required": False}),
-        }"""
+
 
 class UserLoginForm(forms.ModelForm):
     class Meta:
@@ -42,13 +39,11 @@ class UserUpdateForm(forms.ModelForm):
             raise forms.ValidationError('Этот email уже используется.')
 
 class NewsForm(forms.ModelForm):
-    #title = forms.CharField(max_length=100, label="Заголовок")
-    #summary = forms.CharField(max_length=200, label="Краткое описание")
-    #content = forms.CharField(widget=forms.Textarea, label="Текст новости")
     class Meta:
         model = News
         fields = ['title', 'summary', 'content']
         widgets = {
             'summary': forms.Textarea(attrs={'rows': 2}),
             'content': forms.Textarea(attrs={'rows': 10}),
+            #'date_updated': forms.
         }
