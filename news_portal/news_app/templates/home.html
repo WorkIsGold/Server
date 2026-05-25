@@ -14,20 +14,29 @@
                 {% for news in news_list %}
                     <li style="padding: 5px;">
                         <div class="card border-info">
-                            <ul class="list-group list-group-flush">
-                                <a class="list-group-item list-group-item-info list-group-item-action" href="news/{{ news.id }}/">
-                                    <h2> {{ news.title }} </h2>
-                                </a>
-                                {% if current_date == news.date_updated|date:"Y-m-d" %}
-                                <a class="list-group-item list-group-item-info list-group-item-action" href="news/{{ news.id }}/">
-                                    <h5> {{ news.summary }} </h5>
-                                </a>
-                                {% else %}
-                                    <a class="list-group-item list-group-item-action" href="news/{{ news.id }}/">
-                                        <h5> {{ news.summary }} </h5>
-                                    </a>
+                            <div class="row">
+                                <div class="col">
+                                    <ul class="list-group list-group-flush">
+                                        <a class="list-group-item list-group-item-info list-group-item-action" href="news/{{ news.id }}/">
+                                            <h2> {{ news.title }} </h2>
+                                        </a>
+                                        {% if current_date == news.date_updated|date:"Y-m-d" %}
+                                        <a class="list-group-item list-group-item-info list-group-item-action" href="news/{{ news.id }}/">
+                                            <h5> {{ news.summary }} </h5>
+                                        </a>
+                                        {% else %}
+                                            <a class="list-group-item list-group-item-action" href="news/{{ news.id }}/">
+                                                <h5> {{ news.summary }} </h5>
+                                            </a>
+                                        {% endif %}
+                                    </ul>
+                                </div>
+                                {% if news.author.username == user.username %}
+                                <div class="col-1">
+                                    Вы автор
+                                </div>
                                 {% endif %}
-                            </ul>
+                            </div>
                         </div>
                     </li>
                 {% endfor %}
