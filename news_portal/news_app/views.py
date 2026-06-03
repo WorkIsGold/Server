@@ -122,3 +122,7 @@ def news_detail_view(request, news_id=0):
 @login_required
 def success_view(request):
     return render(request, 'success.html')
+
+@api_view(['GET', 'DELETE'])
+def post_element(request, pk):
+    

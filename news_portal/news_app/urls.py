@@ -1,5 +1,6 @@
 from django.urls import path, include
 from django.contrib.auth import views as auth_views
+from django.conf.urls import patterns, url
 from . import views
 
 urlpatterns = [
@@ -17,4 +18,8 @@ urlpatterns = [
     path('logout/', auth_views.LogoutView.as_view(next_page='login'), name='logout'),
     path('profile/', views.profile_view, name='profile'),
     #path('profile/delete/', )
+    'talk.views',
+    url(r'^$', 'home'),
+    url(r'^api/v1/posts/$', 'post_collection'),
+    url(r'^api/v1/posts/(?P<pk>[0-9]+)$', 'post_element'),
 ]
