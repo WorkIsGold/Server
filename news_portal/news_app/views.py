@@ -1,4 +1,6 @@
 from datetime import datetime
+
+from rest_framework import generics
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic import UpdateView
 from django.http import HttpResponse, HttpResponseForbidden
@@ -8,6 +10,7 @@ from django.contrib import messages
 from django.contrib.auth.models import User
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.decorators import login_required
+from .serializers import NewsSerializer
 
 
 @login_required
@@ -123,6 +126,26 @@ def news_detail_view(request, news_id=0):
 def success_view(request):
     return render(request, 'success.html')
 
-@api_view(['GET', 'DELETE'])
-def post_element(request, pk):
-    
+class NewsListCreateView(generics.ListCreateAPIView):
+    """
+    GET: Получить список всех новостей
+    POST: Создать новую новость
+    """
+    queryset = News.objects.all().order_by('-date_created')
+    serializer_class = NewsSerializer
+    permission_classes = [IsAuthenticatedOrReadOnly]
+
+    # Автоматическое назначение автора при создании новости
+    def perform_create(self, serializer):
+        serializer.save(author=self.request.user)
+
+
+class NewsDetailView(generics.RetrieveUpdateDestroyAPIView):
+    """
+    GET: Получить конкретную новость
+    PUT/PATCH: Обновить новость
+    DELETE: Удалить новость
+    """
+    queryset = News.objects.all()
+    serializer_class = NewsSerializer
+    permission_classes = [IsAuthenticatedOrReadOnly]
