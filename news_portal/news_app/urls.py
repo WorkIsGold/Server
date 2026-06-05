@@ -1,15 +1,13 @@
 from django.urls import path, include
 from django.contrib.auth import views as auth_views
-#from django.conf.urls import patterns, url
 from drf_spectacular.management.commands import spectacular
-from drf_spectacular.views import SpectacularAPIView
+from drf_spectacular.views import SpectacularAPIView, SpectacularSwaggerView
+
+from rest_framework.authtoken.views import obtain_auth_token
 
 from . import views
 from .views import NewsDetailView, NewsListCreateView
-
-"""router = DefaultRouter()
-router.register(r'users', UserViewSet)
-router.register(r'news', NewsViewSet)"""
+from .api_urls import router
 
 urlpatterns = [
     path('', views.home_view, name='home'),
@@ -26,13 +24,13 @@ urlpatterns = [
     path('logout/', auth_views.LogoutView.as_view(next_page='login'), name='logout'),
     path('profile/', views.profile_view, name='profile'),
     #path('profile/delete/', )
-    path('api/v1/news/', NewsListCreateView.as_view(), name='news-list'),
-    path('api/v1/news/<int:news_id>/', NewsDetailView.as_view(), name='news-detail'),
+    #path('api/v1/news/', NewsListCreateView.as_view(), name='news-list'),
+    #path('api/v1/news/<int:news_id>/', NewsDetailView.as_view(), name='news-detail'),
     #path('api/users/', ),
     path('api/v1/api-token-auth', obtain_auth_token, name='api-token-auth'),
     path('api/schema/', SpectacularAPIView.as_view(), name='schema'),
     path('api/docs/', SpectacularSwaggerView.as_view(url_name='schema'), name='swagger-ui'),
-
+    path('', include(router.urls)),
     #path('/api-register/', name='api-register'),
     #path('api/login/', name='api-login'),
     #path('api/logout/', name='api-logout'),

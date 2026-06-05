@@ -12,6 +12,7 @@ from django.contrib.auth import login, authenticate
 from django.contrib.auth.decorators import login_required
 from .serializers import NewsSerializer
 
+from rest_framework.permissions import IsAuthenticatedOrReadOnly
 
 @login_required
 def news_create_view(request):

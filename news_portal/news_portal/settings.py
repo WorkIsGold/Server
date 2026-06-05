@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'drf-spectacular'
+    'drf_spectacular',
+    'rest_framework.authtoken',
     'news_app'
 ]
 
