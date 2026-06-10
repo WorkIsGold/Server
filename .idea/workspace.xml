@@ -4,19 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9abe052f-de33-4fe7-a7cd-39f3a22ab43b" name="Changes" comment="start">
-      <change afterPath="$PROJECT_DIR$/news_portal/config/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/news_portal/config/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/news_portal/news_app/api_urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Server.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Server.iml" afterDir="false" />
+    <list default="true" id="9abe052f-de33-4fe7-a7cd-39f3a22ab43b" name="Changes" comment="start create api">
+      <change afterPath="$PROJECT_DIR$/news_portal/api_client/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/news_portal/api_client/client.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/news_portal/api_client/example.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/news_portal/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/news_portal/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/news_portal/news_app/permissions.py" beforeDir="false" afterPath="$PROJECT_DIR$/news_portal/news_app/permissions.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/news_portal/news_app/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/news_portal/news_app/serializers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/news_portal/news_app/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/news_portal/news_app/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/news_portal/news_app/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/news_portal/news_app/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/news_portal/news_app/viewsets.py" beforeDir="false" afterPath="$PROJECT_DIR$/news_portal/news_app/viewsets.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/news_portal/news_portal/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/news_portal/news_portal/settings.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -238,7 +230,15 @@
       <option name="project" value="LOCAL" />
       <updated>1780384858377</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="start create api">
+      <option name="closed" value="true" />
+      <created>1780638683941</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1780638683941</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -279,6 +279,7 @@
     <MESSAGE value="create registering by first name and last name" />
     <MESSAGE value="fixed view of last news" />
     <MESSAGE value="fixed view of author" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed view of author" />
+    <MESSAGE value="start create api" />
+    <option name="LAST_COMMIT_MESSAGE" value="start create api" />
   </component>
 </project>
